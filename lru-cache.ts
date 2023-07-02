@@ -13,7 +13,7 @@ const storage = {};
 const [PREV, NEXT, KEY, RESULT] = [0, 1, 2, 3] as const;
 
 // @NOTE: root of doubly-linked list, initialized and pointing to self
-const root = Array.from(Array(4));
+let root = Array.from(Array(4));
 root[PREV] = root;
 root[NEXT] = root;
 root[KEY] = EMPTY;
@@ -36,6 +36,7 @@ function add(key, val) {
 
     root[RESULT] = EMPTY;
     delete storage[oldKey];
+    storage[key] = oldRoot;
   } else {
     // add new item to the queue
     // Put result in a new link at the front of the queue.
@@ -60,9 +61,6 @@ function getBy(key) {
     return result;
   }
 }
-
-// const [car, cdr] = [1, [2, [3, [4, [5]]]]] as const;
-// const [car2, cdr2] = cdr;
 
 add(1, "value_1");
 add(2, "value_2");
