@@ -6,7 +6,7 @@
 declare function lruCache<T>(data: T): T;
 
 const EMPTY = null;
-const MAX_SIZE = 5;
+const MAX_SIZE = 2;
 const storage = {};
 // @NOTE: circular doubly linked list, doubly-linked list -> store the last recenly used
 // @NOTE: PYTHON WAY: PREV, NEXT, KEY, RESULT = 0, 1, 2, 3
@@ -32,6 +32,7 @@ function add(key, val) {
     // Empty the oldest link and make it the new root.
     root = oldRoot[NEXT];
     const oldKey = root[key];
+    console.log("delete oldest key: ", oldKey);
     root[KEY] = EMPTY;
 
     root[RESULT] = EMPTY;
@@ -56,6 +57,7 @@ function getBy(key) {
   const record = storage[key];
   if (record) return record[RESULT];
   else {
+    console.log("inserting new record");
     const result = computeResult(key);
     add(key, result);
     return result;
@@ -66,6 +68,7 @@ add(1, "value_1");
 add(2, "value_2");
 
 console.log(getBy(2));
+console.log(getBy(3));
 // add(3, 3);
 // console.log(root); // <ref *1> [ [Circular *1], [Circular *1], null, null ]
 // add(4, 4);
