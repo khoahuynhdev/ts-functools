@@ -1,0 +1,19 @@
+{
+  "name": "ts-functools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r esbuild-runner/register"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.60.1",
+    "@typescript-eslint/parser": "^5.60.1",
+    "esbuild-runner": "^2.2.2",
+    "eslint": "^8.44.0",
+    "typescript": "^5.1.6"
+  }
+}
