@@ -3,6 +3,8 @@
 // a hash function -> md5
 // decorator wrapper
 
+// ref: https://github.com/python/cpython/blob/9e335860188229a7985fe9a8b72ee62c684aa9eb/Lib/functools.py#L432
+// https://www.geeksforgeeks.org/insertion-in-doubly-circular-linked-list/
 declare function lruCache<T>(data: T): T;
 
 const EMPTY = null;
